@@ -522,7 +522,7 @@ function CreateExtendedPlayer(player, accounts, inventory, job, gang, loadout, n
 					break
 				end
 			end
-	
+
 			TriggerClientEvent('esx:removeWeaponComponent', self.source, weaponName, weaponComponent)
 		end
 	end
@@ -545,7 +545,7 @@ function CreateExtendedPlayer(player, accounts, inventory, job, gang, loadout, n
 					return true
 				end
 			end
-	
+
 			return false
 		else
 			return false

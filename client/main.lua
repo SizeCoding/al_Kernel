@@ -530,7 +530,7 @@ Citizen.CreateThread(function()
 
 		local playerPed = PlayerPedId()
 		local coords = GetEntityCoords(playerPed)
-		
+
 		-- if there's no nearby pickups we can wait a bit to save performance
 		if next(pickups) == nil then
 			Citizen.Wait(500)
