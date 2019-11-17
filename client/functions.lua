@@ -997,7 +997,7 @@ ESX.Game.Utils.DrawText3D = function(coords, text, size, font)
 
 	if not size then size = 1 end
 	if not font then font = 0 end
-	
+
 	local scale = (size / distance) * 2
 	local fov = (1 / GetGameplayCamFov()) * 100
 	scale = scale * fov
@@ -1147,10 +1147,10 @@ ESX.ShowInventory = function()
 						elements = elements
 					}, function(data2, menu2)
 						local playersInArea, nearbyPlayer = ESX.Game.GetPlayersInArea(GetEntityCoords(playerPed), 3.0)
-	
+
 						for k,v in ipairs(playersInArea) do
 							if v ~= PlayerId() then
-	
+
 								if v == data2.current.player then
 									foundPlayers = true
 									nearbyPlayer = v
@@ -1158,12 +1158,12 @@ ESX.ShowInventory = function()
 								end
 							end
 						end
-	
+
 						if foundPlayers then
 							if type == 'item_weapon' then
 								local closestPed = GetPlayerPed(nearbyPlayer)
 								local sourceAmmo = GetAmmoInPedWeapon(playerPed, GetHashKey(item))
-		
+
 								if IsPedOnFoot(closestPed) then
 									TriggerServerEvent('esx:giveInventoryItem', GetPlayerServerId(nearbyPlayer), type, item, sourceAmmo)
 									menu2.close()
@@ -1177,7 +1177,7 @@ ESX.ShowInventory = function()
 								}, function(data3, menu3)
 									local quantity = tonumber(data3.value)
 									local closestPed = GetPlayerPed(nearbyPlayer)
-		
+
 									if IsPedOnFoot(closestPed) then
 										if quantity then
 											TriggerServerEvent('esx:giveInventoryItem', GetPlayerServerId(nearbyPlayer), type, item, quantity)
@@ -1214,7 +1214,7 @@ ESX.ShowInventory = function()
 							title = _U('amount')
 						}, function(data2, menu2)
 							local quantity = tonumber(data2.value)
-	
+
 							if quantity then
 								TriggerServerEvent('esx:removeInventoryItem', type, item, quantity)
 								menu2.close()
@@ -1244,7 +1244,7 @@ ESX.ShowInventory = function()
 								title = _U('amountammo')
 							}, function(data2, menu2)
 								local quantity = tonumber(data2.value)
-	
+
 								if quantity then
 									if pedAmmo >= quantity and quantity > 0 then
 										TriggerServerEvent('esx:giveInventoryItem', GetPlayerServerId(closestPlayer), 'item_ammo', item, quantity)
